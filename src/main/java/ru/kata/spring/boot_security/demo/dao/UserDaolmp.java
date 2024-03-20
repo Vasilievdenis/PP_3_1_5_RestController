@@ -26,30 +26,33 @@ public class UserDaolmp implements UserDao {
         return entityManager.createQuery("from User", User.class).getResultStream().collect(Collectors.toSet());
     }
 
-    @Override
+    @Transactional
     public User getUser(Integer id) {
 
         return entityManager.find(User.class, id);
     }
 
     @Override
+    @Transactional
     public void addUser(User user) {
         entityManager.persist(user);
     }
 
     @Override
+    @Transactional
     public void updateUser(User user) {
         entityManager.merge(user);
     }
 
     @Override
+    @Transactional
     public void removeUser(Integer id) {
         entityManager.remove(getUser(id));
     }
 
     @Override
     public User findByUserEmail(String email) {
-        String query = "select distinct u from User u left join fetch u.roles where u.email=:email";
+        String query = "select distinct u from User AS u left join fetch u.roles where u.email=:email";
         User user = entityManager.createQuery(query, User.class).setParameter("email", email).getSingleResult();
         if (user == null) {
             throw new UsernameNotFoundException("User" + email + "not found");

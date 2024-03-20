@@ -11,7 +11,7 @@ import ru.kata.spring.boot_security.demo.model.User;
 import java.util.Set;
 
 @Service
-@Transactional
+@Transactional(readOnly = true)
 public class UserServicelmp implements UserService {
     private final UserDao userDao;
     private final PasswordEncoder passwordEncoder;
@@ -22,23 +22,24 @@ public class UserServicelmp implements UserService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @Transactional(readOnly = true)
     @Override
     public Set<User> getUsers() {
         return userDao.getUsers();
     }
 
-    @Transactional(readOnly = true)
     @Override
     public User getUser(Integer id) {
         return userDao.getUser(id);
     }
 
+    @Transactional
     @Override
     public void addUser(User user) {
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userDao.addUser(user);
     }
 
+    @Transactional
     @Override
     public void updateUser(User user) {
         User userFrom = userDao.findByUserEmail(user.getEmail());
@@ -50,6 +51,7 @@ public class UserServicelmp implements UserService {
         userDao.updateUser(user);
     }
 
+    @Transactional
     @Override
     public void removeUser(Integer id) {
         userDao.removeUser(id);

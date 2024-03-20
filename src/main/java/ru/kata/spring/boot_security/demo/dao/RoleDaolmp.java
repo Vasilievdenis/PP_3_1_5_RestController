@@ -6,7 +6,6 @@ import ru.kata.spring.boot_security.demo.model.Role;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -32,6 +31,4 @@ public class RoleDaolmp implements RoleDao {
     public Role findById(Integer id) {
         return entityManager.find(Role.class, id);
     }
-
-
 }

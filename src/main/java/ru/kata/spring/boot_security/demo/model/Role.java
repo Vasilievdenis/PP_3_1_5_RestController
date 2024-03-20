@@ -34,6 +34,7 @@ public class Role {
         this.name = name;
         this.users = users;
     }
+
     public String setName(String name) {
         return this.name = name;
     }

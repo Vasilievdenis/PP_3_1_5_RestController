@@ -3,14 +3,12 @@ package ru.kata.spring.boot_security.demo.init;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import ru.kata.spring.boot_security.demo.model.Role;
 import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.service.RoleServiceImp;
 import ru.kata.spring.boot_security.demo.service.UserService;
 
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -19,14 +17,12 @@ import java.util.Set;
 public class Init implements ApplicationListener<ContextRefreshedEvent> {
 
     private final RoleServiceImp roleService;
-    private final PasswordEncoder passwordEncoder;
     private final UserService userService;
 
     @Autowired
-    public Init(RoleServiceImp roleService, UserService userService, PasswordEncoder passwordEncoder) {
+    public Init(RoleServiceImp roleService, UserService userService) {
         this.roleService = roleService;
         this.userService = userService;
-        this.passwordEncoder = passwordEncoder;
     }
 
 
@@ -48,7 +44,7 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
         admin.setLastname("Vasiliev");
         admin.setAge(30);
         admin.setEmail("admin@mail.ru");
-        admin.setPassword(passwordEncoder.encode("admin"));
+        admin.setPassword("admin");
         admin.setRoles(adminRoles);
         userService.addUser(admin);
 
@@ -57,7 +53,7 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
         user.setLastname("user2");
         user.setAge(18);
         user.setEmail("user@mail.ru");
-        user.setPassword(passwordEncoder.encode("user"));
+        user.setPassword("user");
         user.setRoles(userRoles);
         userService.addUser(user);
     }

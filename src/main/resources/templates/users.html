@@ -167,10 +167,11 @@
                                                                 </div>
                                                                 <div class="mb-3">
                                                                     <label class="container-fluid "
-                                                                           for="roles"><b>Role</b></label>
-                                                                    <select id="roles" name="roles" size="2" multiple="multiple">
+                                                                           for="name_roleUpdate"><b>Role</b></label>
+                                                                    <select id="name_roleUpdate" name="name_role"
+                                                                            size="2" multiple="multiple">
                                                                         <option th:each="role : ${roles}"
-                                                                                th:value="${role.name}"
+                                                                                th:value="${role.id}"
                                                                                 th:text="${role.name}">Role name
                                                                         </option>
                                                                     </select>
@@ -256,7 +257,7 @@
                                                                         <label for="name_roleDelete"
                                                                                class="col-form-label"><b>Role</b></label>
                                                                         <input type="text"
-                                                                               th:value="${user.getRoles()}"
+                                                                               th:value="${#strings.replace(user.getRoles().toString(), '[','').replace(']','').replace('ROLE_', '')}"
                                                                                name="name_role"
                                                                                class="form-control" id="name_roleDelete"
                                                                                readonly/>
@@ -330,7 +331,7 @@
                                     <label class="font-weight-bold"><b>Role</b></label>
                                     <select id="name_roleNew" name="name_role" size="2" multiple="multiple">
                                         <option th:each="role : ${roles}"
-                                                th:value="${role.name}"
+                                                th:value="${role.id}"
                                                 th:text="${role.name}">Role name
                                         </option>
                                     </select>
