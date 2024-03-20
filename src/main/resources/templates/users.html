@@ -169,7 +169,7 @@
                                                                     <label class="container-fluid "
                                                                            for="name_roleUpdate"><b>Role</b></label>
                                                                     <select id="name_roleUpdate" name="name_role"
-                                                                            size="2" multiple="multiple">
+                                                                            size="2" multiple="multiple" required>
                                                                         <option th:each="role : ${roles}"
                                                                                 th:value="${role.id}"
                                                                                 th:text="${role.name}">Role name
@@ -329,7 +329,8 @@
                                            placeholder="password"/>
                                     <br>
                                     <label class="font-weight-bold"><b>Role</b></label>
-                                    <select id="name_roleNew" name="name_role" size="2" multiple="multiple">
+                                    <br>
+                                    <select id="name_roleNew" name="name_role" size="2" multiple="multiple" required>
                                         <option th:each="role : ${roles}"
                                                 th:value="${role.id}"
                                                 th:text="${role.name}">Role name
