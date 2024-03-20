@@ -15,6 +15,7 @@ import ru.kata.spring.boot_security.demo.service.UserService;
 import javax.validation.Valid;
 import java.security.Principal;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/admin")
@@ -30,28 +31,21 @@ public class AdminController {
 
     @GetMapping(value = "/")
     public String getUsers(ModelMap model, Principal principal) {
-        User user = userService.findByUserName(principal.getName());
+        User user = userService.findByUserEmail(principal.getName());
         model.addAttribute("user", user);
         Set<User> list = userService.getUsers();
         model.addAttribute("list", list);
+        model.addAttribute("roles", roleService.getRoles());
         return "users";
     }
 
-    @GetMapping("/new")
-    public String createUserForm(ModelMap model) {
-        User user = new User();
-        model.addAttribute("user", user);
-        Set<Role> roles = roleService.getRoles();
-        model.addAttribute("role", roles);
-        return "userCreate";
-    }
 
     @PostMapping("/")
-    public String addUser(@ModelAttribute("user") @Valid User user, ModelMap model) {
+    public String addUser(@ModelAttribute("user") @Valid User user) {
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        model.addAttribute("roles", roleService.getRoles());
-        userService.addUser(user);
+//        user.setRoles(roleService.getRoles().stream().map(role -> roleService.findById(role.getId())).collect(Collectors.toSet()));
+                userService.addUser(user);
         return "redirect:/admin/";
     }
 

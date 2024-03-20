@@ -18,20 +18,20 @@ public class CustomUserDetails extends User implements UserDetails {
         return getRoles().stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toSet());
     }
 
-    @Override
-    public String getPassword() {
-        return null;
-    }
-
-    @Override
-    public String getUsername() {
-        return null;
-    }
-
-    @Override
-    public Integer getId() {
-        return super.getId();
-    }
+//    @Override
+//    public String getPassword() {
+//        return null;
+//    }
+//
+//    @Override
+//    public String getUsername() {
+//        return null;
+//    }
+//
+//    @Override
+//    public Integer getId() {
+//        return super.getId();
+//    }
 
     @Override
     public boolean isAccountNonExpired() {
@@ -53,28 +53,28 @@ public class CustomUserDetails extends User implements UserDetails {
         return true;
     }
 
-    @Override
-    public String getName() {
-        return super.getName();
-    }
-
-    @Override
-    public Integer getAge() {
-        return super.getAge();
-    }
-
-    @Override
-    public String getEmail() {
-        return super.getEmail();
-    }
-
-    @Override
-    public Set<Role> getRoles() {
-        return super.getRoles();
-    }
-
-    @Override
-    public String getLastname() {
-        return super.getLastname();
-    }
+//    @Override
+//    public String getName() {
+//        return super.getName();
+//    }
+//
+//    @Override
+//    public Integer getAge() {
+//        return super.getAge();
+//    }
+//
+//    @Override
+//    public String getEmail() {
+//        return super.getEmail();
+//    }
+//
+//    @Override
+//    public Set<Role> getRoles() {
+//        return super.getRoles();
+//    }
+//
+//    @Override
+//    public String getLastname() {
+//        return super.getLastname();
+//    }
 }

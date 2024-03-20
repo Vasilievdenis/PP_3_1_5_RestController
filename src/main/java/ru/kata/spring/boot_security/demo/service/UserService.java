@@ -11,5 +11,5 @@ public interface UserService {
     void addUser(User user);
     void updateUser(User user);
     void removeUser(Integer id);
-    User findByUserName(String name);
+    User findByUserEmail(String email);
 }

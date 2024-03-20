@@ -41,7 +41,7 @@ public class UserServicelmp implements UserService {
 
     @Override
     public void updateUser(User user) {
-        User userFrom = userDao.findByUserName(user.getName());
+        User userFrom = userDao.findByUserEmail(user.getEmail());
         if (user.getPassword() == "") {
             user.setPassword(userFrom.getPassword());
         } else {
@@ -56,7 +56,7 @@ public class UserServicelmp implements UserService {
     }
 
     @Override
-    public User findByUserName(String name) {
-        return userDao.findByUserName(name);
+    public User findByUserEmail(String email) {
+        return userDao.findByUserEmail(email);
     }
 }

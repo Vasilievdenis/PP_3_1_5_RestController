@@ -10,6 +10,8 @@ import javax.persistence.*;
 import java.util.Objects;
 import java.util.Set;
 
+
+
 @Setter
 @Getter
 @Entity
@@ -29,6 +31,7 @@ public class User {
     @Column(name = "password")
     private String password;
 
+    @Getter
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.MERGE)
     @Fetch(FetchMode.JOIN)
     @JoinTable(name = "users_roles",
@@ -69,5 +72,10 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hash(id, age, password, email, lastname, roles);
+    }
+
+    @Override
+    public String toString() {
+        return roles.toString();
     }
 }

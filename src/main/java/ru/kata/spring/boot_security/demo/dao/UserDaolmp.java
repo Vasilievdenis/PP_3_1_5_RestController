@@ -2,6 +2,7 @@ package ru.kata.spring.boot_security.demo.dao;
 
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 import ru.kata.spring.boot_security.demo.model.User;
 
 import javax.persistence.EntityManager;
@@ -47,11 +48,11 @@ public class UserDaolmp implements UserDao {
     }
 
     @Override
-    public User findByUserName(String name) {
-        String query = "select u from User u left join fetch u.roles where u.name=:name";
-        User user = entityManager.createQuery(query, User.class).setParameter("name", name).getSingleResult();
+    public User findByUserEmail(String email) {
+        String query = "select distinct u from User u left join fetch u.roles where u.email=:email";
+        User user = entityManager.createQuery(query, User.class).setParameter("email", email).getSingleResult();
         if (user == null) {
-            throw new UsernameNotFoundException("User " + name + " not found");
+            throw new UsernameNotFoundException("User" + email + "not found");
         }
         return user;
     }

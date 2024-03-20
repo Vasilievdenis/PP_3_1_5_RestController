@@ -26,8 +26,8 @@ public class RoleServiceImp implements RoleService {
     }
 
     @Override
-    public Set<Role> findById(Integer id) {
-        return roleDao.getRoles();
+    public Role findById(Integer id) {
+        return roleDao.findById(id);
     }
 
     @Override

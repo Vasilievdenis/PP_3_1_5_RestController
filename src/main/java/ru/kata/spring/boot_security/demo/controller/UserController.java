@@ -21,7 +21,7 @@ public class UserController {
 
     @GetMapping("/user")
     public String followUser(Model model, Principal principal) {
-        User user = userDaolmp.findByUserName(principal.getName());
+        User user = userDaolmp.findByUserEmail(principal.getName());
         model.addAttribute("user", user);
         return "user";
     }

@@ -13,4 +13,6 @@ public interface RoleDao {
 
     @Transactional
     void addRole(Role role);
+
+    Role findById(Integer id);
 }

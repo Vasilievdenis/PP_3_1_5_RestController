@@ -23,6 +23,17 @@ public class Role {
     public Role() {
     }
 
+    public Role(Integer id, Set<User> users) {
+        this.id = id;
+        this.users = users;
+    }
+
+
+    public Role(Integer id, String name, Set<User> users) {
+        this.id = id;
+        this.name = name;
+        this.users = users;
+    }
     public String setName(String name) {
         return this.name = name;
     }
@@ -46,5 +57,10 @@ public class Role {
     @Override
     public int hashCode() {
         return Objects.hash(id, name);
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

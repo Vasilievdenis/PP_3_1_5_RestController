@@ -8,7 +8,7 @@ import java.util.Set;
 @Repository
 public interface UserDao {
 
-    User findByUserName(String name);
+    User findByUserEmail(String email);
     Set<User> getUsers();
     User getUser(Integer id);
     void removeUser(Integer id);
