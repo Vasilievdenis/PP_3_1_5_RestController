@@ -45,7 +45,7 @@ public class AdminController {
     }
 
     @PatchMapping("/{id}")
-    public String saveUpdateUser(@ModelAttribute("user") @Valid User user, @RequestParam(name = "name_role", required = false) Integer[] roles) {
+    public String saveUpdateUser(@ModelAttribute("user") @Valid User user, @RequestParam(name = "name_role", required = false) Integer[] roles ) {
         user.setRoles(Arrays.stream(roles).map(roleService::findById).collect(Collectors.toSet()));
         userService.updateUser(user);
         return "redirect:/admin/";

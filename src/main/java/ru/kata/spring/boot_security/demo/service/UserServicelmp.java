@@ -42,9 +42,8 @@ public class UserServicelmp implements UserService {
     @Transactional
     @Override
     public void updateUser(User user) {
-        User userFrom = userDao.findByUserEmail(user.getEmail());
         if (user.getPassword() == "") {
-            user.setPassword(userFrom.getPassword());
+            user.setPassword(user.getPassword());
         } else {
             user.setPassword(passwordEncoder.encode(user.getPassword()));
         }

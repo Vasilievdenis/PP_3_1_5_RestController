@@ -50,7 +50,6 @@ public class UserDaolmp implements UserDao {
         entityManager.remove(getUser(id));
     }
 
-    @Override
     public User findByUserEmail(String email) {
         String query = "select distinct u from User AS u left join fetch u.roles where u.email=:email";
         User user = entityManager.createQuery(query, User.class).setParameter("email", email).getSingleResult();
