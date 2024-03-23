@@ -4,7 +4,6 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-import ru.kata.spring.boot_security.demo.model.Role;
 import ru.kata.spring.boot_security.demo.model.User;
 
 import java.util.Set;
@@ -54,11 +53,6 @@ public class CustomUserDetails extends User implements UserDetails {
     }
 
     @Override
-    public String getName() {
-        return super.getName();
-    }
-
-    @Override
     public Integer getAge() {
         return super.getAge();
     }
@@ -66,11 +60,6 @@ public class CustomUserDetails extends User implements UserDetails {
     @Override
     public String getEmail() {
         return super.getEmail();
-    }
-
-    @Override
-    public Set<Role> getRoles() {
-        return super.getRoles();
     }
 
     @Override

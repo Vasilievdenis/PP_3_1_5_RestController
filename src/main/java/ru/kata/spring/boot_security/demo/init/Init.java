@@ -9,6 +9,7 @@ import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.service.RoleServiceImp;
 import ru.kata.spring.boot_security.demo.service.UserService;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -40,7 +41,7 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
         Set<Role> adminRoles = new HashSet<>(List.of(adminRole));
 
         User admin = new User();
-        admin.setName("admin");
+        admin.setUsername("admin");
         admin.setLastname("Vasiliev");
         admin.setAge(30);
         admin.setEmail("admin@mail.ru");
@@ -49,7 +50,7 @@ public class Init implements ApplicationListener<ContextRefreshedEvent> {
         userService.addUser(admin);
 
         User user = new User();
-        user.setName("user");
+        user.setUsername("user");
         user.setLastname("user2");
         user.setAge(18);
         user.setEmail("user@mail.ru");

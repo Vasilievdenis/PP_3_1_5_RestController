@@ -28,7 +28,6 @@ public class UserDaolmp implements UserDao {
 
     @Transactional
     public User getUser(Integer id) {
-
         return entityManager.find(User.class, id);
     }
 

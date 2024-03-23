@@ -11,7 +11,7 @@ import ru.kata.spring.boot_security.demo.dao.UserDao;
 import ru.kata.spring.boot_security.demo.model.Role;
 import ru.kata.spring.boot_security.demo.model.User;
 
-import java.util.Set;
+import java.util.Collection;
 import java.util.stream.Collectors;
 
 @Component
@@ -34,7 +34,7 @@ public class CustomUserDetailsService implements UserDetailsService {
                 mapRoles(user.getRoles()));
     }
 
-    private Set<? extends GrantedAuthority> mapRoles(Set<Role> roles) {
+    private Collection<? extends GrantedAuthority> mapRoles(Collection<Role> roles) {
         return roles.stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toSet());
     }
 }
