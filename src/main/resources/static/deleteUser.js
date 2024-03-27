@@ -10,11 +10,29 @@ async function deleteModal(id) {
 function deleteUser() {
     formDelete.addEventListener("submit", ev => {
         ev.preventDefault();
+
+        let rolesForDelete = [];
+        for (let i = 0; i < formDelete.roles.options.length; i++) {
+            if (formDelete.roles.options[i].selected) rolesForDelete.push({
+                id: formDelete.roles.options[i].value,
+                role: "ROLE_" + formDelete.roles.options[i].text
+            });
+        }
+
         fetch("http://localhost:8080/api/admin/users/" + formDelete.id.value, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            body: JSON.stringify({
+                id: formDelete.id.value,
+                username: formDelete.username.value,
+                lastname: formDelete.lastname.value,
+                age: formDelete.age.value,
+                email: formDelete.email.value,
+                password: formDelete.password.value,
+                roles: rolesForDelete
+            })
         }).then(() => {
             $('#deleteClose').click();
             getAllUsers();

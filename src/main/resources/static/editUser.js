@@ -1,8 +1,6 @@
 let formEdit = document.forms["formEdit"];
 editUser();
 
-const URLEdit = "http://localhost:8080/api/admin/users/";
-
 async function editModal(id) {
     const modalEdit = new bootstrap.Modal(document.querySelector('#editModal'));
     await open_fill_modal(formEdit, modalEdit, id);
@@ -21,7 +19,7 @@ function editUser() {
             });
         }
 
-        fetch(URLEdit + formEdit.id.value, {
+        fetch("http://localhost:8080/api/admin/users/" + formEdit.id.value, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json'

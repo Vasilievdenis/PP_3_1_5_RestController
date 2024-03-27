@@ -36,7 +36,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/admin/**").hasRole("ADMIN")
                 .anyRequest().authenticated()
                 .and()
-                .formLogin().successHandler(successUserHandler).permitAll()
+                .formLogin().successHandler(successUserHandler)
                 .loginPage("/")
                 .loginProcessingUrl("/process_login")
                 .usernameParameter("email")

@@ -46,7 +46,7 @@ async function open_fill_modal(form, modal, id) {
     modal.show();
     let user = await getUserById(id);
     form.id.value = user.id;
-    form.name.value = user.username;
+    form.username.value = user.username;
     form.lastname.value = user.lastname;
     form.age.value = user.age;
     form.email.value = user.email;

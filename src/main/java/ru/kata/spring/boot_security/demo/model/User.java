@@ -7,8 +7,6 @@ import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
 
-import java.util.Collection;
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -37,12 +35,12 @@ public class User {
     @JoinTable(name = "users_roles",
             joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
-    private Collection<Role> roles;
+    private Set<Role> roles;
 
     public User() {
     }
 
-    public User(String username, String lastname, Integer age, String email, String password, List<Role> roles) {
+    public User(String username, String lastname, Integer age, String email, String password, Set<Role> roles) {
         this.username = username;
         this.lastname = lastname;
         this.age = age;

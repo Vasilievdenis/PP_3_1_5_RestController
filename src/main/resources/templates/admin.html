@@ -48,9 +48,7 @@
                 <li class="nav-item">
                     <a class="nav-link text-left" data-toggle="tab" href="#userPanel">User</a>
                 </li>
-
             </ul>
-
         </div>
     </div>
 
@@ -71,7 +69,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#newUser">New User</a>
                             </li>
-
                         </ul>
                     </nav>
                     <!--table Users-->
@@ -101,7 +98,6 @@
                                  aria-labelledby="EditModalLabel" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
                                     <div class="modal-content">
-
                                         <div class="modal-header">
                                             <h5 class="modal-title">Edit user</h5>
                                             <button type="button" class="close" data-dismiss="modal">&times;
@@ -116,8 +112,8 @@
                                                             <label for="edit-id"><b>ID</b></label>
                                                             <input class="form-control"
                                                                    type="text"
-                                                                   id="edit-id"
                                                                    name="id"
+                                                                   id="edit-id"
                                                                    readonly/>
                                                         </div>
 
@@ -125,18 +121,16 @@
                                                             <label for="edit-username"><b>First Name</b></label>
                                                             <input class="form-control"
                                                                    type="text"
-                                                                   id="edit-username"
                                                                    name="username"
-                                                                   placeholder="username"/>
+                                                                   id="edit-username"/>
                                                         </div>
 
                                                         <div class="mb-3">
                                                             <label for="edit-lastname"><b>Last Name</b></label>
                                                             <input class="form-control"
                                                                    type="text"
-                                                                   id="edit-lastname"
                                                                    name="lastname"
-                                                                   placeholder="lastname"/>
+                                                                   id="edit-lastname"/>
                                                         </div>
 
                                                         <div class="mb-3">
@@ -144,45 +138,40 @@
                                                             <input class="form-control"
                                                                    type="number"
                                                                    name="age"
-                                                                   id="edit-age"
-                                                                   placeholder="Age"/>
+                                                                   id="edit-age"/>
                                                         </div>
 
                                                         <div class="mb-3">
                                                             <label for="edit-email"><b>Email</b></label>
                                                             <input class="form-control"
-                                                                   type="email"
-                                                                   id="edit-email"
+                                                                   type="text"
                                                                    name="email"
-                                                                   placeholder="email"/>
+                                                                   id="edit-email"/>
                                                         </div>
 
                                                         <div class="mb-3">
                                                             <label for="edit-password"><b>Password</b></label>
                                                             <input class="form-control"
                                                                    type="text"
-                                                                   id="edit-password"
                                                                    name="password"
-                                                                   placeholder="Password"/>
+                                                                   id="edit-password"/>
                                                         </div>
 
                                                         <div class="mb-3">
                                                             <label for="edit-roles"><b>Role</b></label>
-                                                            <select multiple size="2"
-                                                                    class="form-control"
-                                                                    id="edit-roles" name="roles" required>
+                                                            <select multiple class="form-control"
+                                                                    size="2"
+                                                                    name="roles" required
+                                                                    id="edit-roles">
                                                             </select>
                                                         </div>
 
                                                         <div class="modal-footer text-end">
                                                             <button type="button" class="btn btn-secondary"
-                                                                    data-dismiss="modal"
-                                                                    id="editClose">
-                                                                Close
+                                                                    id="editClose"
+                                                                    data-dismiss="modal">Close
                                                             </button>
-                                                            <button type="submit" class="btn btn-primary">
-                                                                Edit
-                                                            </button>
+                                                            <input type="submit" class="btn btn-primary" value="Edit">
                                                         </div>
                                                     </form>
                                                 </div>
@@ -219,13 +208,13 @@
                                                         </div>
 
                                                         <div class="mb-3">
-                                                            <label for="delete-name">
+                                                            <label for="delete-username">
                                                                 <b>First Name</b>
                                                             </label>
                                                             <input class="form-control"
-                                                                   name="name"
+                                                                   name="username"
                                                                    type="text"
-                                                                   id="delete-name"
+                                                                   id="delete-username"
                                                                    disabled/>
                                                         </div>
 
@@ -252,13 +241,13 @@
                                                         </div>
 
                                                         <div class="mb-3">
-                                                            <label for="delete-username">
-                                                                <b>username</b>
+                                                            <label for="delete-email">
+                                                                <b>Email</b>
                                                             </label>
                                                             <input class="form-control"
-                                                                   name="username"
+                                                                   name="email"
                                                                    type="text"
-                                                                   id="delete-username"
+                                                                   id="delete-email"
                                                                    disabled/>
                                                         </div>
 
@@ -335,7 +324,7 @@
                                                 </label>
                                                 <input type="number" class="form-control"
                                                        id="create-age"
-                                                       placeholder="Age"
+                                                       placeholder="age"
                                                        name="age"
                                                        required>
                                             </div>
@@ -362,10 +351,10 @@
                                             </div>
 
                                             <div class="mb-3">
-                                                <label for="edit-roles"><b>Role</b></label>
-                                                <select multiple size="2"
-                                                        class="form-control"
-                                                        id="create-roles" name="roles" required>
+                                                <label for="create-roles"><b>Role</b></label>
+                                                <label for="create-roles"></label><select multiple size="2"
+                                                                                          class="form-control"
+                                                                                          id="create-roles" name="roles" required>
                                                 </select>
                                             </div>
                                             <br>
@@ -390,7 +379,7 @@
                                 <thead class="thead">
                                 <tr>
                                     <th>Id</th>
-                                    <th>Name</th>
+                                    <th>First Name</th>
                                     <th>Last Name</th>
                                     <th>Age</th>
                                     <th>Email</th>
@@ -398,7 +387,6 @@
                                 </tr>
                                 </thead>
                                 <tbody id="tableAdmin">
-
                                 </tbody>
                             </table>
                         </div>
@@ -411,7 +399,7 @@
 
 <script type="text/javascript" src="/admin.js"></script>
 <script type="text/javascript" src="/deleteUser.js"></script>
-<script type="text/javascript" src="/updateUser.js"></script>
+<script type="text/javascript" src="/editUser.js"></script>
 <script type="text/javascript" src="/formNewUser.js"></script>
 <script type="text/javascript" src="/tableUsers.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
