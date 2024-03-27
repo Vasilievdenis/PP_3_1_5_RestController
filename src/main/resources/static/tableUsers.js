@@ -30,7 +30,7 @@ function getAllUsers() {
                           <button type="button"
                           class="btn btn-info"
                           data-bs-toggle="modal"
-                          data-bs-target="#editModal"
+                          data-target="#editModal"
                           onclick="editModal(${user.id})">
                                 Edit
                             </button>
